@@ -1,0 +1,10 @@
+srv=net.createServer(net.TCP) 
+srv:listen(30303,function(conn) 
+    conn:on("receive",function(conn,payload) 
+    print("Input:"..payload) 
+    --lcd_init()
+   -- LCD_string(payload)
+   --conn:close()
+    end)
+end)
+

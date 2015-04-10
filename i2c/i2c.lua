@@ -59,4 +59,9 @@ for i=1,127 do
 end
 
 
-write_reg(39,0,255)
+write_reg(39,0,0)
+
+
+write_reg(56,0,8)--pcf
+
+write_reg(56,0,0)--pcf
