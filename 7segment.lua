@@ -45,4 +45,4 @@ function seven_segment(num)
 
 end
 
-decode(1)
+decode(0)
