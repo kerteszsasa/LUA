@@ -1,10 +1,10 @@
 print("freq_noint")
 
 GPIO14 =   5
-local freq = 0
+freq = 0
 local cycle = 0
-state1 = 0
-state2 = 0
+local state1 = 0
+local state2 = 0
 
 function read_input ()
     gpio.mode(GPIO14, gpio.INPUT)
@@ -14,7 +14,7 @@ function read_input ()
     end
     state2 = state1
     cycle = cycle +1
-    if cycle > 10000 then 
+    if cycle > 1000 then 
     tmr.stop(1)
     print("freq: "..freq)
     end

@@ -13,3 +13,12 @@ print(items)
 print (time)
 items= time
 
+
+function cycle()
+lcd_init() LCD_string("szomjas: "..freq) dofile('freq_noint.lua')
+end
+
+
+
+tmr.alarm(3, 2000, 1, cycle )-- use tmr 3, wait 2s , cycle run
+

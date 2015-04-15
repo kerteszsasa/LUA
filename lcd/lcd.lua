@@ -1,9 +1,19 @@
 function lcd_send(data)
-    write_reg(56,0,data)--pcf
+    i2c.start(id)
+    i2c.address(id, dev_addr, i2c.TRANSMITTER)
+    i2c.write(id, data)
+    i2c.stop(id)
 end
 
-ENABLE = 16
-RS = 64
+function i2c_init_lcd()
+    id=0  -- need this to identify (software) IC2 bus?
+    sda=3 -- connect to pin GPIO0
+    scl=4 -- connect to pin GPIO2
+    dev_addr =56
+    ENABLE = 16
+    RS = 64
+    i2c.setup(id,sda,scl,i2c.SLOW)
+end
 
 function lcd_data(data)
     high = data/16
@@ -26,9 +36,9 @@ function lcd_cmd(data)
     lcd_send(low)
 end
 
-
-
 function lcd_init()
+i2c_init_lcd()
+
 lcd_send(3)
 lcd_send(19)
 lcd_send(3)
@@ -58,17 +68,21 @@ tmr.delay(5000)
 end
 
 function LCD_string(msg)
-    for i=1, string.len(msg) do
-        lcd_data(string.byte(msg, i))
+if(msg~=nil)then
+    len = string.len(msg)
+    for i=1, len do
+       lcd_data(string.byte(msg, i))
     end
 end
-
+end
 
 lcd_init()
 LCD_string("hello"..45)
-LCD_string(wifi.ap.getip())
+LCD_string(wifi.sta.getip())
 lcd_cmd(0x80,0); 
 LCD_string("11:26")
+
+
 
 
 lcd_cmd(0x80,0)--#define GOTO_LINE1
