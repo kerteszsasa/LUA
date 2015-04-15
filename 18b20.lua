@@ -1,5 +1,5 @@
 -- 18b20 Example
-pin = 4
+pin = 5
 ow.setup(pin)
 count = 0
 repeat
@@ -16,7 +16,7 @@ else
   if (crc == addr:byte(8)) then
     if ((addr:byte(1) == 0x10) or (addr:byte(1) == 0x28)) then
       print("Device is a DS18S20 family device.")
-        repeat
+       -- repeat
           ow.reset(pin)
           ow.select(pin, addr)
           ow.write(pin, 0x44, 1)
@@ -38,9 +38,10 @@ else
              t1 = t / 10000
              t2 = t % 10000
              print("Temperature="..t1.."."..t2.."Centigrade")
+             seven_segment(t/100)
           end                   
           tmr.wdclr()
-        until false
+       -- until false
     else
       print("Device family is not recognized.")
     end
