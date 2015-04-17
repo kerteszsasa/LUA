@@ -21,19 +21,20 @@ srv:listen(502,function(conn)
         print("olvas")
         print(node.heap())
         tmr.wdclr()
-     --  tid1 = string.byte(payload, 1)
-     --  tid2 = string.byte(payload, 2)
-     --  uid = string.byte(payload, 7)
-      -- start = string.byte(payload, 9)*256
-      -- start = start + string.byte(payload, 10)
-      --start =1
-
-      -- print("start: "..start)
-       data=83
+       tid1 = string.byte(payload, 1)
+       tid2 = string.byte(payload, 2)
+       uid = string.byte(payload, 7)
+       start = string.byte(payload, 9)*256
+       start = start + string.byte(payload, 10)
+       print(node.heap())
+       print(start)
+       data1=0
+       data2=1
 
 tmr.wdclr()
-      -- response=string.char(tid1, tid2, 0, 0, 0, 5, uid, 3, 1,      0,data)
-      response=string.char(0, 1, 0, 0, 0, 5, 17, 3, 1,      0,data)
+       response=string.char(tid1, tid2, 0, 0, 0, 5, uid, 3, 2,      data1,data2)
+       print(node.heap())
+      --response=string.char(0, 1, 0, 0, 0, 5, 17, 3, 1,      0,data)
         conn:send(response)
         end
    --conn:send("ACK")
