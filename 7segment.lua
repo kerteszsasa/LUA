@@ -48,6 +48,14 @@ function seven_segment(num)
     decode(ezres)
 end
 
+function seven_segment_off()
+send_SR(0)
+send_SR(0)
+send_SR(0)
+send_SR(0)
+end
+
 seven_segment(1852)
+seven_segment_off()
 
 
