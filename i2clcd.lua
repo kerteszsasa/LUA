@@ -14,14 +14,14 @@ end
 -- the draw() routine
 function draw()
      disp:setFont(u8g.font_6x10)
-     disp:drawStr( 0+0, 20+0, "Hehgfhfo!")
-     disp:drawStr( 0+2, 20+16, "Hehhhhhhhhhhllo!")
+     disp:drawStr( 0+0, 20+0, "HELLO!")
+     disp:drawStr( 0+2, 20+16, "Small OLED module!")
      disp:drawBox(0, 0, 3, 3)
      disp:drawBox(disp:getWidth()-6, 0, 6, 6)
      disp:drawBox(disp:getWidth()-9, disp:getHeight()-9, 9, 9)
      disp:drawBox(0, disp:getHeight()-12, 12, 12)
 
-     disp:drawCircle(80, 22, 9)
+   --  disp:drawCircle(80, 22, 9)
 
 
 end

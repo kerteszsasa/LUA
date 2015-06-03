@@ -3,6 +3,8 @@ conn=net.createConnection(net.TCP, 0)
         print (payload)
         conn:close()
     end)
-conn:connect(8080,"192.168.1.100")
+conn:connect(30304,"192.168.1.103")
 conn:send("HEAD / HTTP/1.1\r\n")
+
+
 

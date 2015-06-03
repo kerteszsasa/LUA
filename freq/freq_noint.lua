@@ -14,7 +14,7 @@ function read_input ()
     end
     state2 = state1
     cycle = cycle +1
-    if cycle > 1000 then 
+    if cycle > 10000 then 
     tmr.stop(1)
     print("freq: "..freq)
     end
